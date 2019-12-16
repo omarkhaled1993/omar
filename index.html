@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script>
+    $(function(){
+
+    $("#btn").click(function(){
+
+    var num1 = $("#num1").val();
+    var num2 = $("#num2").val();
+
+    $("#tb").append('<tr><td>'+num1+'</td><td>'+num2+'</td><td><input type="button" value="Get Total" class="total"></td><td></td></tr>')
+                            })
+
+
+
+
+
+
+    $("#tb").on("click",".total",function(total){
+
+        var number1 = $(this).parent().prev().prev().text();
+        var number2 = $(this).parent().prev().text();
+         total = parseInt(number1)+parseInt(number2);
+
+        $(this).parent().next().replaceWith('<td>'+total+'</td>');
+
+    })                        
+
+
+
+    })
+
+
+
+    </script>
+</head>
+<body>
+    <div align="center">
+<label for="num1">Number1:</label><input type="text" id="num1">
+<br><br>
+<label for="num2">Number2:</label><input type="text" id="num2">
+<br><br>
+<input type="button" value="ADD" id="btn">
+    </div>
+
+
+    <br><br><br><br>
+
+
+    <table border="1" align="center">
+        <thead>
+            <tr>
+                <th>Number1</th>
+                <th>Number2</th>
+                <th>Get Total</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody id="tb">
+           
+        </tbody>
+    </table>
+</body>
+</html>
